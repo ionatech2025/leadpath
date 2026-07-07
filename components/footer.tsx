@@ -25,7 +25,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-primary dark:bg-slate-950 text-white transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 py-12">
@@ -37,20 +37,20 @@ export function Footer() {
               </div>
               <h3 className="font-serif font-bold text-xl">LeadPath</h3>
             </div>
-            <p className="text-white/80 text-sm mb-6 max-w-sm">
+            <p className="text-white/90 dark:text-slate-300 text-sm mb-6 max-w-sm leading-relaxed">
               Empowering careers. Inspiring leaders. Building the future through career development, leadership training, and entrepreneurship support.
             </p>
             {/* Contact Info */}
             <div className="space-y-3 text-sm">
-              <div className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+              <div className="flex items-center gap-2 text-white/90 dark:text-slate-300 hover:text-white dark:hover:text-white transition-colors">
                 <Mail size={16} />
                 <a href="mailto:info@leadpath.org">info@leadpath.org</a>
               </div>
-              <div className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+              <div className="flex items-center gap-2 text-white/90 dark:text-slate-300 hover:text-white dark:hover:text-white transition-colors">
                 <MessageCircle size={16} />
                 <a href="https://wa.me/256700000000">+256 700 000 000</a>
               </div>
-              <div className="flex items-center gap-2 text-white/80">
+              <div className="flex items-center gap-2 text-white/90 dark:text-slate-300">
                 <MapPin size={16} />
                 <span>Kampala, Uganda</span>
               </div>
@@ -60,13 +60,13 @@ export function Footer() {
           {/* Links Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-semibold text-white mb-4 text-sm">{category}</h4>
+              <h4 className="font-semibold text-white dark:text-slate-100 mb-4 text-sm">{category}</h4>
               <ul className="space-y-2 text-sm">
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-white/80 hover:text-white transition-colors"
+                      className="text-white/90 dark:text-slate-400 hover:text-white dark:hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -78,21 +78,21 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10"></div>
+        <div className="border-t border-white/10 dark:border-slate-700"></div>
 
         {/* Bottom Footer */}
         <div className="py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-white/60">
+          <p className="text-sm text-white/70 dark:text-slate-400">
             © {currentYear} LeadPath. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-white/60">
-            <Link href="#" className="hover:text-white transition-colors">
+          <div className="flex gap-6 text-sm text-white/70 dark:text-slate-400">
+            <Link href="#" className="hover:text-white dark:hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link href="#" className="hover:text-white transition-colors">
+            <Link href="#" className="hover:text-white dark:hover:text-white transition-colors">
               Terms of Service
             </Link>
-            <Link href="#" className="hover:text-white transition-colors">
+            <Link href="#" className="hover:text-white dark:hover:text-white transition-colors">
               Code of Conduct
             </Link>
           </div>
