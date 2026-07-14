@@ -4,6 +4,7 @@
   "installCommand": "pnpm install",
   "devCommand": "next dev",
   "regions": ["iad1"],
+<<<<<<< HEAD
   "crons": [],
   "env": {
     "NEXT_PUBLIC_ANALYTICS_ID": "@vercel/analytics"
@@ -50,4 +51,7 @@
   "cleanUrls": true,
   "redirects": [],
   "rewrites": []
+=======
+  "crons": []
+>>>>>>> 13150cae133cc83080d4045ca42dfb2aa03f16bb
 }
