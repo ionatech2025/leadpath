@@ -28,10 +28,17 @@ export default function Page() {
       {/* Hero Section */}
       <Section
         bgColor="primary"
-        className="pt-32 pb-20 md:pt-40 md:pb-24"
+        className="pt-32 pb-20 md:pt-40 md:pb-24 relative overflow-hidden"
         id="hero"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Background Image Overlay */}
+        <div 
+          className="absolute inset-0 opacity-20 bg-cover bg-center bg-fixed"
+          style={{
+            backgroundImage: 'url(/hero-background.png)',
+          }}
+        />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           <div>
             <Heading level={1} className="text-white mb-4">
               Empowering Careers
@@ -51,15 +58,8 @@ export default function Page() {
               <Button variant="outline" href="/programmes" size="lg">
                 Explore Programmes
               </Button>
-            </div>
           </div>
-          <div className="relative">
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-jfNx7MmRWvfEaLCtCLlEgp9A222wys.jpeg"
-              alt="LeadPath Logo"
-              className="w-full max-w-md mx-auto"
-            />
-          </div>
+        </div>
         </div>
       </Section>
 

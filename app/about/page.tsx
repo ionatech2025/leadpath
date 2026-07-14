@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Section, Heading, Card, Button } from '@/components/ui-components'
@@ -27,15 +28,25 @@ export default function AboutPage() {
     },
   ]
 
-  const team = [
+  const founders = [
     {
-      name: 'Dr. Sarah Kamanja',
-      title: 'Founder & Executive Director',
-      bio: 'Visionary leader with 15+ years of experience in career development and organizational leadership.',
+      name: 'Mary Nanyomo',
+      title: 'Co-Founder & Executive Director',
+      bio: 'Visionary leader with 15+ years of experience in career development and organizational leadership. Passionate about empowering the next generation of African leaders.',
+      image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Mary%20Nanyomo-PoORxYhFKblrZAOgFYfMi78WWFEz3D.jpeg',
     },
     {
+      name: 'Suzan K. Mutoni',
+      title: 'Co-Founder & Programme Director',
+      bio: 'Strategic innovator dedicated to developing transformative programmes. Brings energy and expertise in creating pathways for young professionals to discover their potential.',
+      image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Suzan%20K.%20Mutoni-VXY3qKgHjDpICtVXY4wrfGmrlGO8b7.jpeg',
+    },
+  ]
+
+  const team = [
+    {
       name: 'James Mutonyi',
-      title: 'Programme Director',
+      title: 'Programme Coordinator',
       bio: 'Experienced career coach specializing in youth empowerment and professional development pathways.',
     },
     {
@@ -47,6 +58,11 @@ export default function AboutPage() {
       name: 'David Kipchoge',
       title: 'Partnerships Manager',
       bio: 'Strategic thinker focused on building collaborations with leading organizations and institutions.',
+    },
+    {
+      name: 'Grace Wairimu',
+      title: 'Community Manager',
+      bio: 'Passionate about building inclusive communities and ensuring member engagement and success.',
     },
   ]
 
@@ -79,7 +95,7 @@ export default function AboutPage() {
             <Heading level={2} className="text-primary mb-6">
               Our Story
             </Heading>
-            <div className="space-y-4 text-muted-foreground">
+            <div className="space-y-4 text-primary/75 dark:text-muted-foreground">
               <p>
                 LeadPath was founded on the belief that every individual has the
                 potential to achieve greatness. We recognized a critical gap in
@@ -98,7 +114,50 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <div className="bg-muted rounded-lg h-96"></div>
+          <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
+            <img
+              src="/african-career-growth.png"
+              alt="African professionals in career development"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/10" />
+          </div>
+        </div>
+      </Section>
+
+      {/* Our Founders */}
+      <Section id="founders" className="bg-white">
+        <div className="text-center mb-16">
+          <Heading level={2} className="text-primary mb-4">
+            Our Founders
+          </Heading>
+          <p className="text-lg text-primary/70 dark:text-muted-foreground max-w-2xl mx-auto">
+            Visionary leaders dedicated to empowering African professionals and emerging leaders
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
+          {founders.map((founder, idx) => (
+            <div key={idx} className="group">
+              <div className="relative mb-6 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <h3 className="font-serif font-bold text-2xl text-primary mb-1">
+                {founder.name}
+              </h3>
+              <p className="text-lg font-semibold text-accent mb-4">
+                {founder.title}
+              </p>
+              <p className="text-primary/75 dark:text-muted-foreground leading-relaxed">
+                {founder.bio}
+              </p>
+            </div>
+          ))}
         </div>
       </Section>
 
@@ -109,7 +168,7 @@ export default function AboutPage() {
             <h3 className="font-serif font-bold text-2xl text-primary mb-4">
               Our Mission
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-primary/75 dark:text-muted-foreground leading-relaxed">
               To empower individuals with the knowledge, skills, and networks
               necessary to build fulfilling careers and become transformational
               leaders in their organizations and communities.
@@ -120,7 +179,7 @@ export default function AboutPage() {
             <h3 className="font-serif font-bold text-2xl text-primary mb-4">
               Our Vision
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-primary/75 dark:text-muted-foreground leading-relaxed">
               A world where every person has access to quality career guidance,
               leadership development, and mentorship to reach their full potential
               and create meaningful impact.
@@ -146,7 +205,7 @@ export default function AboutPage() {
               <h3 className="font-serif font-bold text-xl text-primary mb-3">
                 {value.title}
               </h3>
-              <p className="text-muted-foreground">{value.description}</p>
+              <p className="text-primary/75 dark:text-muted-foreground">{value.description}</p>
             </Card>
           ))}
         </div>
@@ -158,7 +217,7 @@ export default function AboutPage() {
           <Heading level={2} className="text-primary mb-2">
             Our Team
           </Heading>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-primary/70 dark:text-muted-foreground">
             Dedicated professionals committed to your success
           </p>
         </div>
@@ -173,7 +232,7 @@ export default function AboutPage() {
               <p className="text-sm font-semibold text-accent mb-3">
                 {member.title}
               </p>
-              <p className="text-sm text-muted-foreground">{member.bio}</p>
+              <p className="text-sm text-primary/75 dark:text-muted-foreground">{member.bio}</p>
             </Card>
           ))}
         </div>
@@ -182,8 +241,15 @@ export default function AboutPage() {
       {/* Why Choose Us */}
       <Section id="why-us" className="bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="bg-muted rounded-lg h-96"></div>
-          <div>
+          <div className="relative h-96 rounded-lg overflow-hidden shadow-lg order-2 lg:order-1">
+            <img
+              src="/african-team-collaboration.png"
+              alt="African professionals collaborating and mentoring"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-tr from-secondary/20 to-accent/10" />
+          </div>
+          <div className="order-1 lg:order-2">
             <Heading level={2} className="text-primary mb-6">
               Why Choose LeadPath?
             </Heading>
@@ -201,7 +267,7 @@ export default function AboutPage() {
                     size={24}
                     className="text-accent flex-shrink-0 mt-1"
                   />
-                  <p className="text-muted-foreground">{item}</p>
+                  <p className="text-primary/75 dark:text-muted-foreground">{item}</p>
                 </div>
               ))}
             </div>
